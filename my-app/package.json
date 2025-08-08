@@ -5,15 +5,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-   "deploy": "gh-pages -d build",
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "server": "node server/server.js",
-    "start": "concurrently \"npm run server\" \"npm run dev\""
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "postbuild": "copy dist\\index.html dist\\404.html",   
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist",
+  "server": "node server/server.js",
+  "start": "concurrently \"npm run server\" \"npm run dev\"",
+  "lint": "eslint .",
+  "preview": "vite preview"
+}
+,
   "dependencies": {
     "@ant-design/icons": "^5.6.1",
     "@react-oauth/google": "^0.12.1",
